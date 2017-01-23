@@ -1,0 +1,78 @@
+/* Iowa.gov Sliver Header JS */
+
+var igovsliver = function() {
+	var domain = "https://iowa.gov/sliver/";
+	// var domain = "/";
+	var styleFile = "sliver-1.5.css";
+	return {
+		start : function() {
+			// this should only be called after the DOM is ready
+			igovsliver.addMarkup();
+			igovsliver.addBehavior();
+		},
+		addMarkup : function() {
+			// add link to stylesheet
+			var stylelink = document.createElement('link');
+			stylelink.rel = "stylesheet";
+			stylelink.type = "text/css";
+			stylelink.href = domain + styleFile;
+			document.getElementsByTagName('head')[0].appendChild(stylelink);
+
+			// check for ie special needs styles
+			var ieClass = (document.compatMode!="CSS1Compat" && navigator.userAgent.indexOf('MSIE') > -1) ? 'quirky' : '';
+
+			// add sliver
+			var sliverNode = document.createElement('div');
+			sliverNode.id = "iowa_sliver";
+			sliverNode.className = ieClass;
+			igovsliver.prepend(sliverNode, document.body);
+			document.getElementById('iowa_sliver').innerHTML = '<div id="iowa_sliver_bar"><div id="iowa_sliver_links"><ul><li id="iowa_sliver_logo"><a href="https://www.iowa.gov">Iowa.gov</a></li><li id="iowa_sliver_agencies"><a href="https://directory.iowa.gov/organization/Index">Agencies</a></li><li id="iowa_sliver_services"><a href="https://directory.iowa.gov/service/Index">Online Services</a></li></ul></div><div id="iowa_sliver_search"><a href="https://www.iowa.gov/search" id="iowa_sliver_search_link">Search All of Iowa.gov...</a></div></div><div id="iowa_sliver_search_form"><form method="get" action="https://www.iowa.gov/search/google"><p>Search all State of Iowa websites:</p><input type="text" name="keys" id="iowa_sliver_q" /><input type="submit" name="" id="iowa_sliver_search_submit" value="Search" /></form><a href="#" class="close" id="iowa_sliver_search_form_close" title="Close Search Box">X</a></div>';
+
+			// add spacer
+			var sliverSpacer = document.createElement('div');
+			sliverSpacer.id = "iowa_sliver_spacer";
+			igovsliver.prepend(sliverSpacer, document.body);
+			document.getElementById('iowa_sliver_spacer').innerHTML = "&nbsp;";
+		},
+		addBehavior : function() {
+			// make search link show search box
+			var searchlink = document.getElementById('iowa_sliver_search_link');
+			var searchform = document.getElementById('iowa_sliver_search_form');
+			var closelink = document.getElementById('iowa_sliver_search_form_close');
+			if (searchlink != null) {
+				// search link event
+				igovsliver.addEvent(searchlink, 'click', function(e){
+					if (searchform.style.display == 'block') {
+						searchform.style.display = 'none';
+					} else {
+						searchform.style.display = 'block';
+					}
+					e.preventDefault ? e.preventDefault() : e.returnValue = false;
+					return false;
+				});
+				// close link event
+				igovsliver.addEvent(closelink, 'click', function(e){
+					searchform.style.display = 'none';
+					e.preventDefault ? e.preventDefault() : e.returnValue = false;
+					return false;
+				});
+			} else {
+				setTimeout(function(){
+					igovsliver.addBehavior();
+				},500);
+			}
+		},
+		prepend : function(what, where) {
+			where.insertBefore(what, where.childNodes[0]);
+		},
+		addEvent : function(obj, evType, fn) {
+			if (obj.addEventListener){
+				obj.addEventListener(evType, fn, false);
+			} else if (obj.attachEvent){
+				var r = obj.attachEvent("on"+evType, fn);
+			}
+		},
+		domReady : function(f) {/in/.test(document.readyState)?setTimeout('igovsliver.domReady('+f+')',9):f()}
+	}
+}();
+igovsliver.domReady(igovsliver.start);

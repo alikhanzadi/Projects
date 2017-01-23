@@ -1,0 +1,290 @@
+/**
+ * Iowa.gov Sliver Header CSS
+ * v 1.5
+ * --------------------------
+ * Information at http://iowa.gov/sliver/
+*/
+
+#iowa_sliver_spacer {
+	height:41px;
+}
+#iowa_sliver {
+	-webkit-box-sizing:content-box;
+	-moz-box-sizing:content-box;
+	box-sizing:content-box;
+}
+#iowa_sliver * {
+	-webkit-box-sizing:inherit;
+	-moz-box-sizing:inherit;
+	box-sizing:inherit;
+}
+#iowa_sliver_bar {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	overflow:visible;
+	margin:0;
+	padding:3px 0;
+	color:#fff;
+	font:normal 13px/20px Helvetica, Arial, sans-serif!important;
+	text-align:right;
+	background:#2f5e8c;
+}
+#iowa_sliver_bar a, #iowa_sliver_bar a:visited {
+	color:#fff;
+	text-decoration:none;
+}
+#iowa_sliver_bar a:hover {
+	text-decoration:underline;
+}
+#iowa_sliver_links {
+	float:left;
+	position:relative;
+	z-index:500;
+}
+#iowa_sliver_links ul {
+	margin:3px 0 0 1px;
+	padding:0;
+	text-align:left;
+}
+#iowa_sliver_links ul li {
+	margin:0;
+	padding:0;
+	list-style:none;
+	float:left;
+	display:inline;
+}
+#iowa_sliver_links ul li a, #iowa_sliver_links ul li a:visited {
+	display:block;
+	float:left;
+	padding:6px 10px 2px;
+	opacity:0.7;
+	-webkit-transition:opacity 0.3s ease-out;
+	-moz-transition:opacity 0.3s ease-out;
+}
+#iowa_sliver_links ul li a:hover {
+	opacity:1;
+}
+#iowa_sliver_links ul li#iowa_sliver_agencies a {
+	background:url(img/icons/listing.png) no-repeat 4px 10px;
+	padding-left:22px;
+}
+#iowa_sliver_links ul li#iowa_sliver_services a {
+	background:url(img/icons/services.png) no-repeat 5px 10px;
+	padding-left:22px;
+}
+#iowa_sliver_links ul li#iowa_sliver_logo a {
+	width:115px;
+	height:26px;
+	padding:2px 10px;
+	margin-top:-2px;
+	overflow:hidden;
+	text-indent:-1000px;
+	opacity:1;
+	background:url(img/iowa-logo-small-white-1.2.png) no-repeat 10px 0px;
+}
+#iowa_sliver_links ul li#iowa_sliver_logo a:hover, #iowa_sliver_links ul li#iowa_sliver_logo a:focus {
+	background-position:10px -35px;
+}
+
+#iowa_sliver_search {
+	margin:3px 10px 0 0;
+	position:relative;
+}
+#iowa_sliver_search a#iowa_sliver_search_link {
+	display:inline-block;
+	padding:2px 8px 2px 26px;
+	margin:3px 0;
+	border:1px solid #819dbc;
+	font-size:12px;
+	line-height:20px;
+	color:#bfcddd;
+	background: url(img/icons/search-icon.png) no-repeat 8px 6px;
+	-webkit-transition:all 0.3s ease-out;
+	-moz-transition:all 0.3s ease-out;
+}
+#iowa_sliver_search a#iowa_sliver_search_link:hover {
+	color:#fff;
+}
+#iowa_sliver_search_form {
+	display:none;
+	position:absolute;
+	top:42px;
+	right:10px;
+	padding:10px;
+	background-color:#b7c7d9;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	box-shadow:0 5px 10px rgba(0,0,0,0.3);
+	text-align:left;
+	color:#204a7a;
+	z-index:5000;
+}
+#iowa_sliver_search_form p {
+	font-style:italic;
+	font-size:14px;
+	margin:0 0 10px 0;
+}
+#iowa_sliver_search_form:before {
+	content: ".";
+	display:block;
+	position:absolute;
+	top:-10px;
+	right:10px;
+	width:0;
+	height:0;
+	overflow:hidden;
+	border-style:solid;
+	border-width:0 10px 10px 10px;
+	border-color:transparent transparent #b7c7d9 transparent;
+}
+#iowa_sliver_search_form a.close {
+	display:block;
+	position:absolute;
+	top:10px;
+	right:10px;
+	padding:3px 5px;
+	background-color:#acbed2;
+	text-align:center;
+	font-size:11px;
+	line-height:10px;
+	color:#fff;
+	text-decoration:none;
+}
+#iowa_sliver_search_form a.close:hover {
+	background-color:#a0b5cb;
+}
+#iowa_sliver_search_form form {
+	margin:0;
+	padding:0 10px 0 0;
+}
+
+#iowa_sliver_search_form form input#iowa_sliver_q {
+	padding:2px;
+	margin:0 3px 0 0;
+	width:160px;
+	font-size:13px;
+	line-height:13px;
+	background-color:#819dbc;
+	color:#dce4ed;
+	border:1px inset #255182;
+	-webkit-transition:all 0.5s ease-out;
+	-moz-transition:all 0.5s ease-out;
+}
+#iowa_sliver_search_form form input#iowa_sliver_q:focus {
+	background-color:#dce4ed;
+	color:#204a7a;
+}
+#iowa_sliver_search_form form input#iowa_sliver_search_submit {
+	padding:2px 6px;
+	font-size:13px;
+	line-height:1em;
+	overflow:visible;
+	margin:0;
+	color:#444;
+	text-shadow:1px 1px 1px #e6e6e6;
+	border:1px outset #999;
+	cursor:pointer;
+	background: #ccc;
+	background: -moz-linear-gradient(top, #b2b2b2 0%, #c9c9c9 45%, #d6d6d6 62%, #d6d6d6 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b2b2b2), color-stop(45%,#c9c9c9), color-stop(62%,#d6d6d6), color-stop(100%,#d6d6d6)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #b2b2b2 0%,#c9c9c9 45%,#d6d6d6 62%,#d6d6d6 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #b2b2b2 0%,#c9c9c9 45%,#d6d6d6 62%,#d6d6d6 100%); /* Opera11.10+ */
+	background: -ms-linear-gradient(top, #b2b2b2 0%,#c9c9c9 45%,#d6d6d6 62%,#d6d6d6 100%); /* IE10+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b2b2b2', endColorstr='#d6d6d6',GradientType=0 ); /* IE6-9 */
+	background: linear-gradient(top, #b2b2b2 0%,#c9c9c9 45%,#d6d6d6 62%,#d6d6d6 100%); /* W3C */
+}
+/* IE in Quirks-mode styles */
+#iowa_sliver.quirky #iowa_sliver_bar {
+	height:41px;
+}
+#iowa_sliver.quirky #iowa_sliver_links ul li#iowa_sliver_logo a {
+	width:115px;
+	height:30px;
+}
+#iowa_sliver.quirky #iowa_sliver_search {
+	margin:6px 10px 0 0;
+}
+#iowa_sliver.quirky #iowa_sliver_search_form form input#iowa_sliver_q {
+	width:164px;
+	margin-right:5px
+}
+
+@media only screen and (max-width: 515px) {
+	#iowa_sliver_spacer {
+		height:37px;
+	}
+	#iowa_sliver_bar {
+		height:35px;
+		padding:1px 0;
+	}
+	#iowa_sliver_links ul li#iowa_sliver_logo a {
+		width:72px;
+		height:24px;
+		padding:3px 10px 3px 8px;
+		background-position:8px -70px;
+	}
+	#iowa_sliver_links ul li#iowa_sliver_logo a:hover, #iowa_sliver_links ul li#iowa_sliver_logo a:focus {
+		background-position:8px -105px;
+	}
+	#iowa_sliver_search a#iowa_sliver_search_link {
+		position:absolute;
+		top:-1px;
+		right:-2px;
+		padding:2px 8px;
+		width:10px;
+		overflow:hidden;
+		text-align:left;
+		text-indent:-1000px;
+	}
+	#iowa_sliver_links ul li a, #iowa_sliver_links ul li a:visited {
+		padding:6px 8px 2px;
+		opacity:0.9;
+	}
+	#iowa_sliver_search_form {
+		display:none;
+		position:relative;
+		top:auto;
+		right:auto;
+		padding:8px;
+		background-color:#b7c7d9;
+		-moz-border-radius:0;
+		-webkit-border-radius:0;
+		box-shadow:none;
+		text-align:left;
+		color:#204a7a;
+	}
+	#iowa_sliver_search_form:before {
+		display:none;
+		border-style:none;
+	}
+	#iowa_sliver_search_form form input#iowa_sliver_q {
+		padding:4px;
+		margin-right:3px;
+		width:68%;
+		font-size:14px;
+		line-height:16px;
+	}
+	#iowa_sliver_search_form form input#iowa_sliver_search_submit {
+		padding:4px 6px;
+		font-size:14px;
+		line-height:16px;
+	}
+}
+@media only screen and (max-width: 335px) {
+	#iowa_sliver_bar {
+		min-width:292px;
+	}
+	#iowa_sliver_search_form {
+		min-width:276px; /* 292px - 16px of padding = 276px */
+	}
+	#iowa_sliver_links ul li#iowa_sliver_agencies a {
+		background:none;
+		padding-left:0;
+	}
+	#iowa_sliver_links ul li#iowa_sliver_services a {
+		background:none;
+		padding-left:5px;
+	}
+}
